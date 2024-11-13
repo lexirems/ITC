@@ -1,49 +1,71 @@
 <!DOCTYPE html>
 <html>
 <body>
+  
+   <h1>JavaScript Arrays</h1>
+   <h2>pop, push, shift, unshift</h2>
+   <br>
+   <button onclick="pop()">pop</button>
+   <input type="string" id="fruit">
+   <button onclick="push()">push</button>
+   <br>
+   <button onclick="shift()">shift</button>
+   <input type="string" id="fruit1">
+   <button onclick="unshift()">unshift</button>
+   <p id="demo"></p>
 
-<h2>Adding Two Numbers</h2>
+<br>
+<label>Indicate Position</label>
+<input type="number" id="pos">
+<button onclick="splice2()">Splice Mangosteen,Grapes</button>
 
-<p>
-  <label for="fnum">First Number:</label>
-  <input type="number" id="fnum" name="fnum" value=" ">
-  
-  <label for="snum">Second Number:</label>
-  <input type="number" id="snum" name="snum" value=" "><br><br>
-  
-  <label for="sum" id="lsum">The sum is:</label>  
-  <input id="sum" name="sum" type="number" readonly></input><br><br>
-  
-  <button onclick="addsum()"> Compute Sum </button>
-   <button onclick="clearvalues()"> Reset </button>
-</p> 
+<br>
+<label>Position:</label>
+<input type="number" id="pos2">
+<label>Elements:</label>
+<input type="number" id="el">
+<button onclick="splice3()">Delete Using Splice</button>
 
 <script>
-function addsum()
-{
-  var a,b;
+   function splice2(){  // delete elements
 
-  a = document.getElementById("fnum").value*1;  
-  b = document.getElementById("snum").value*1; 
+       let p = document.getElementById("pos").value * 1;
+        fruits.splice(p,0,"Mangosteen","Grapes");
+        document.getElementById("demo").innerHTML=fruits;
+   }
+  
+   function splice3(){  // inserts elements
+       let p = document.getElementById("pos2").value * 1;
+       let el = document.getElementById("el").value * 1;
+        fruits.splice(p,el);
+        document.getElementById("demo").innerHTML=fruits;
+   }
 
-  let c  = a+b;
+   function pop(){
+        fruits.pop();
+        document.getElementById("demo").innerHTML=fruits;
+   }
 
-   document.getElementById("sum").value=c;
+   function push(){
+        let f = document.getElementById("fruit").value;
+        fruits.push(f);
+        document.getElementById("demo").innerHTML=fruits;
+   }
+  
+   function shift(){
+        fruits.shift();
+        document.getElementById("demo").innerHTML=fruits;
+   }
 
-}
+   function unshift(){
+        let f = document.getElementById("fruit1").value;
+        fruits.unshift(f);
+        document.getElementById("demo").innerHTML=fruits;
+   }
 
-function clearvalues()
-{
-   var a,b;
+   var fruits = ["Banana", "Orange", "Apple", "Mango"];
+   document.getElementById("demo").innerHTML=fruits;
 
- 
-  document.getElementById("fnum").value='';
-  document.getElementById("snum").value='';
-  document.getElementById("lsum").innerHTML='The sum is:'
-  document.getElementById("sum").value='';
- 
-}
 </script>
-
 </body>
 </html>
