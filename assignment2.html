@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Income Tax Calculator</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Helvetica:400,700">
+    <style>
+        body {
+            font-family: "Helvetica", sans-serif;
+            margin: 20px;
+        }
+        .custom-header {
+            background-color: #cc99ff;
+            padding: 128px 16px;
+            text-align: center;
+            color: black;
+        }
+        .custom-footer {
+            background-color: #000000;
+            padding: 64px;
+            text-align: center;
+            color: white;
+        }
+        .converter {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input {
+            margin-top: 5px;
+            padding: 5px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 5px 10px;
+        }
+        .w3-bar {
+            background-color: #cc99ff; 
+        }
+    </style>
+</head>
+<body>
+
+<div class="w3-top">
+    <div class="w3-bar w3-card w3-left-align w3-large">
+        <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+        <a href="lexineremediositc.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Home</a>
+        <a href="assignment1.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Assignment 1</a>
+        <a href="assignment2.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Assignment 2</a>
+        <a href="assignment3.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Assignment 3</a>
+        <a href="assignment4.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Assignment 4</a>
+    </div>
+
+    <div id="navDemo" class="w3-bar-block w3-white w3-hide">
+    <a href="lexineremediositc.html" class="w3-bar-item w3-button w3-padding-large">Home</a>
+    <a href="assignment1.html" class="w3-bar-item w3-button w3-padding-large">Assignment 1</a>
+    <a href="assignment2.html" class="w3-bar-item w3-button w3-padding-large">Assignment 2</a>
+    <a href="assignment3.html" class="w3-bar-item w3-button w3-padding-large">Assignment 3</a>
+    <a href="assignment.html" class="w3-bar-item w3-button w3-padding-large">Assignment 4</a>
+  </div>
+</div>
+
+<header class="custom-header">
+    <h1 class="w3-margin 5" style="font-weight: bold; font-size: 70px;">Income Tax Calculator</h1>
+</header>
+
+</head>
+<body>
+
+    <div class="w3-row-padding w3-padding-64">
+        <div class="w3-content">
+        
+        <h1>Income Tax Calculator</h1>
+         <label for="income">Enter your taxable income (in PHP):</label>
+         <input type="number" id="income" placeholder="Enter income" min="0">
+         <button onclick="calculateTax()">Calculate Tax</button>
+         <p id="result"></p>
+        </div>
+    </div>
+
+<div class="custom-footer">
+    <h1 class="w3-margin custom-footer">The best preparation for tomorrow is doing your best today.<br>H. Jackson Brown, Jr.</h1>
+</div>
+
+    <script>
+        function calculateTax() {
+            const income = parseFloat(document.getElementById('income').value);
+            let tax = 0;
+
+            if (isNaN(income) || income < 0) {
+                document.getElementById('result').innerText = 'Please enter a valid income.';
+                return;
+            }
+
+            // Tax calculation based on the given brackets
+            if (income <= 250000) {
+                tax = 0; // No tax for income up to P250,000
+            } else if (income <= 400000) {
+                tax = (income - 250000) * 0.20; // 20% of the excess over P250,000
+            } else if (income <= 800000) {
+                tax = 30000 + (income - 400000) * 0.25; // P30,000 + 25% of the excess over P400,000
+            } else if (income <= 2000000) {
+                tax = 130000 + (income - 800000) * 0.30; // P130,000 + 30% of the excess over P800,000
+            } else if (income <= 8000000) {
+                tax = 490000 + (income - 2000000) * 0.32; // P490,000 + 32% of the excess over P2,000,000
+            } else {
+                tax = 2410000 + (income - 8000000) * 0.35; // P2,410,000 + 35% of the excess over P8,000,000
+            }
+
+            document.getElementById('result').innerText = `Your income tax is: PHP ${tax.toFixed(2)}`;
+        }
+
+        function myFunction() {
+      var x = document.getElementById("navDemo");
+      if (x.className.indexOf("w3-show") == -1) {
+          x.className += " w3-show";
+      } else { 
+          x.className = x.className.replace(" w3-show", "");
+      }
+    }
+    </script>
+
+</body>
+</html>
