@@ -1,0 +1,155 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <title>Math Operations</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Helvetica:400,700">
+   <style>
+        body {
+            font-family: "Helvetica", sans-serif;
+            margin: 20px;
+        }
+        .custom-header {
+            background-color: #cc99ff;
+            padding: 128px 16px;
+            text-align: center;
+            color: black;
+        }
+        .custom-footer {
+            background-color: #000000;
+            padding: 64px;
+            text-align: center;
+            color: white;
+        }
+        .converter {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input {
+            margin-top: 5px;
+            padding: 5px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 5px 10px;
+        }
+        .w3-bar {
+            background-color: #cc99ff; 
+        }
+    </style>
+</head>
+<body>
+
+<div class="w3-top">
+    <div class="w3-bar w3-card w3-left-align w3-large">
+        <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+        <a href="lexineremediositc.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Home</a>
+        <a href="assignment1.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Assignment 1</a>
+        <a href="assignment2.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Assignment 2</a>
+        <a href="assignment3.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Assignment 3</a>
+        <a href="assignment4.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Assignment 4</a>
+    </div>
+
+    <div id="navDemo" class="w3-bar-block w3-white w3-hide">
+    <a href="lexineremediositc.html" class="w3-bar-item w3-button w3-padding-large">Home</a>
+    <a href="assignment1.html" class="w3-bar-item w3-button w3-padding-large">Assignment 1</a>
+    <a href="assignment2.html" class="w3-bar-item w3-button w3-padding-large">Assignment 2</a>
+    <a href="assignment3.html" class="w3-bar-item w3-button w3-padding-large">Assignment 3</a>
+    <a href="assignment.html" class="w3-bar-item w3-button w3-padding-large">Assignment 4</a>
+  </div>
+</div>
+
+<header class="custom-header">
+    <h1 class="w3-margin 5" style="font-weight: bold; font-size: 70px;">Math Operations</h1>
+</header>
+
+<body>
+    <div class="w3-row-padding w3-padding-64">
+    <div class="w3-content">
+       <h1>Math Operations on First N Natural Numbers</h1>
+
+       <div class="operation">
+        <h2>Factorial (While Loop)</h2>
+        <label for="factorialInput">Enter a number (N):</label>
+        <input type="number" id="factorialInput" min="0" placeholder="Enter a non-negative integer">
+        <button onclick="calculateFactorial()">Calculate Factorial</button>
+        <p id="factorialResult"></p>
+      </div>
+
+    <div class="operation">
+        <h2>Sum (Do While Loop)</h2>
+        <label for="sumInput">Enter a number (N):</label>
+        <input type="number" id="sumInput" min="0" placeholder="Enter a non-negative integer">
+        <button onclick="calculateSum()">Calculate Sum</button>
+        <p id="sumResult"></p>
+    </div>
+
+    <div class="operation">
+        <h2>Average (For Loop)</h2>
+        <label for="averageInput">Enter a number (N):</label>
+        <input type="number" id="averageInput" min="0" placeholder="Enter a non-negative integer">
+        <button onclick="calculateAverage()">Calculate Average</button>
+        <p id="averageResult"></p>
+    </div>
+    </div>
+    </div>
+
+<div class="custom-footer">
+    <h1 class="w3-margin custom-footer">If I have seen further than others, it is by standing upon the shoulders of giants.<br>Isaac Newton</h1>
+</div>
+
+    <script>
+        function calculateFactorial() {
+            const n = parseInt(document.getElementById('factorialInput').value);
+            if (n >= 0) {
+                let factorial = 1;
+                let i = 1;
+                while (i <= n) {
+                    factorial *= i;
+                    i++;
+                }
+                document.getElementById('factorialResult').innerText = `Factorial of ${n} is ${factorial}.`;
+            } else {
+                document.getElementById('factorialResult').innerText = 'Please enter a non-negative integer.';
+            }
+        }
+
+        function calculateSum() {
+            const n = parseInt(document.getElementById('sumInput').value);
+            if (n >= 0) {
+                let sum = 0;
+                let i = 1;
+                do {
+                    sum += i;
+                    i++;
+                } while (i <= n);
+                document.getElementById('sumResult').innerText = `Sum of first ${n} natural numbers is ${sum}.`;
+            } else {
+                document.getElementById('sumResult').innerText = 'Please enter a non-negative integer.';
+            }
+        }
+
+        function calculateAverage() {
+            const n = parseInt(document.getElementById('averageInput').value);
+            if (n > 0) {
+                let sum = 0;
+                for (let i = 1; i <= n; i++) {
+                    sum += i;
+                }
+                const average = sum / n;
+                document.getElementById('averageResult').innerText = `Average of first ${n} natural numbers is ${average.toFixed(2)}.`;
+            } else if (n === 0) {
+                document.getElementById('averageResult').innerText = 'Average of first 0 natural numbers is undefined.';
+            } else {
+                document.getElementById('averageResult').innerText = 'Please enter a positive integer.';
+            }
+        }
+    </script>
+
+</body>
+</html>
