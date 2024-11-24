@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Payroll</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Helvetica:400,700">
+    <style>
+        body {
+            font-family: "Helvetica", sans-serif;
+            margin: 20px;
+        }
+        .custom-header {
+            background-color: #cc99ff;
+            padding: 128px 16px;
+            text-align: center;
+            color: black;
+        }
+        .custom-footer {
+            background-color: #000000;
+            padding: 64px;
+            text-align: center;
+            color: white;
+        }
+        .converter {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input {
+            margin-top: 5px;
+            padding: 5px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 5px 10px;
+        }
+        .w3-bar {
+            background-color: #cc99ff; 
+        }
+        
+        /* Table styling */
+        table {
+            width: 100%;
+            border-collapse: collapse; /* Merge borders */
+            margin-top: 20px; /* Space above the table */
+        }
+        th, td {
+            border: 1px solid #ddd; /* Light grey border */
+            padding: 12px; /* Padding inside cells */
+            text-align: left; /* Align text to the left */
+        }
+        th {
+            background-color: #cc99ff; /* Lavender background for header */
+            color: black; /* Header text color */
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2; /* Light grey for even rows */
+        }
+        tr:hover {
+            background-color: #ddd; /* Darker grey on hover */
+        }
+    </style>
+</head>
+<body>
+
+<div class="w3-top">
+    <div class="w3-bar w3-card w3-left-align w3-large">
+        <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+        <a href="lexineremediositc.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Home</a>
+        <a href="assignment1.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Assignment 1</a>
+        <a href="assignment2.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Assignment 2</a>
+        <a href="assignment3.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Assignment 3</a>
+        <a href="assignment4.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Assignment 4</a>
+    </div>
+
+    <div id="navDemo" class="w3-bar-block w3-white w3-hide">
+      <a href="lexineremediositc.html" class="w3-bar-item w3-button w3-padding-large">Home</a>
+      <a href="assignment1.html" class="w3-bar-item w3-button w3-padding-large">Assignment 1</a>
+      <a href="assignment2.html" class="w3-bar-item w3-button w3-padding-large">Assignment 2</a>
+      <a href="assignment3.html" class="w3-bar-item w3-button w3-padding-large">Assignment 3</a>
+      <a href="assignment4.html" class="w3-bar-item w3-button w3-padding-large">Assignment 4</a> <!-- Corrected link -->
+    </div>
+</div>
+
+<header class="custom-header">
+    <h1 class="w3-margin h1-colored" style="font-weight: bold; font-size: 70px;">Simple Payroll</h1>
+</header>
+
+<div class="w3-row-padding w3-padding-64">
+    <div class="w3-content">
+
+        <h1>Payroll Management System</h1>
+
+        <label for="employeeName">Employee Name:</label>
+        <input type="text" id="employeeName" placeholder="Enter employee name">
+
+        <label for="daysWorked">Days Worked:</label>
+        <input type="number" id="daysWorked" placeholder="Enter days worked" min="0">
+
+        <label for="dailyRate">Daily Rate:</label>
+        <input type="number" id="dailyRate" placeholder="Enter daily rate" min="0">
+
+        <label for="deductionAmount">Deduction Amount:</label>
+        <input type="number" id="deductionAmount" placeholder="Enter deduction amount" min="0">
+
+        <button onclick="addEmployee()">Add Employee</button>
+        <button onclick="deleteEmployee()">Delete Employee</button>
+    </div>
+</div>
+
+<table id="payrollTable">
+    <thead>
+        <tr>
+            <th>No.</th>
+            <th>Employee Name</th>
+            <th>Days Worked</th>
+            <th>Daily Rate</th>
+            <th>Gross Pay</th>
+            <th>Deduction Amount</th>
+            <th>Net Pay</th>
+        </tr>
+    </thead>
+    <tbody id="payrollBody">
+        <!-- Payroll data will be inserted here -->
+    </tbody>
+</table>
+
+<div class="custom-footer">
+    <h1 class="w3-margin custom-footer">No matter what people tell you, words and ideas can change the world.<br>Robin Williams</h1>
+</div>
+
+<script>
+    let payrollList = [];
+
+    function addEmployee() {
+        const name = document.getElementById('employeeName').value;
+        const daysWorked = parseInt(document.getElementById('daysWorked').value);
+        const dailyRate = parseFloat(document.getElementById('dailyRate').value);
+        const deductionAmount = parseFloat(document.getElementById('deductionAmount').value);
+
+        if (name === '' || isNaN(daysWorked) || isNaN(dailyRate) || isNaN(deductionAmount)) {
+            alert('Please fill in all fields correctly.');
+            return;
+        }
+
+        const grossPay = daysWorked * dailyRate;
+        const netPay = grossPay - deductionAmount;
+
+        payrollList.push({
+            name,
+            daysWorked,
+            dailyRate,
+            grossPay,
+            deductionAmount,
+            netPay
+        });
+
+        updatePayrollTable();
+        clearInputs();
+    }
+
+    function deleteEmployee() {
+        const lineNumber = parseInt(prompt('Enter the line number of the employee to delete:'));
+        
+        if (isNaN(lineNumber) || lineNumber <= 0 || lineNumber > payrollList.length) {
+            alert('Invalid line number.');
+            return;
+        }
+
+        payrollList.splice(lineNumber - 1, 1); // Remove the employee from the list
+        updatePayrollTable();
+    }
+
+    function updatePayrollTable() {
+        const tbody = document.getElementById('payrollBody');
+        tbody.innerHTML = ''; // Clear existing rows
+
+        payrollList.forEach((employee, index) => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${index + 1}</td>
+                <td>${employee.name}</td>
+                <td>${employee.daysWorked}</td>
+                <td>${employee.dailyRate.toFixed(2)}</td>
+                <td>${employee.grossPay.toFixed(2)}</td>
+                <td>${employee.deductionAmount.toFixed(2)}</td>
+                <td>${employee.netPay.toFixed(2)}</td>
+            `;
+            tbody.appendChild(row);
+        });
+    }
+
+    function clearInputs() {
+        document.getElementById('employeeName').value = '';
+        document.getElementById('daysWorked').value = '';
+        document.getElementById('dailyRate').value = '';
+        document.getElementById('deductionAmount').value = '';
+    }
+</script>
+
+</body>
+</html>
