@@ -63,6 +63,7 @@ function closeConfirmModal() {
     document.getElementById('confirmModal').style.display = 'none';
 }
 
+// Function to confirm deletion
 function confirmDelete() {
     const lineNumber = parseInt(document.getElementById('lineNumberToDelete').value);
     if (lineNumber > 0 && lineNumber <= payrollList.length) {
@@ -110,8 +111,4 @@ window.onclick = function(event) {
    const confirmModal = document.getElementById('confirmModal');
 
    if (event.target == inputModal) {
-       closeInputModal();
-   } else if (event.target == confirmModal) {
-       closeConfirmModal();
-   }
-};
+       closeInput
