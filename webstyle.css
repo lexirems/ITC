@@ -20,7 +20,7 @@ h1 {
 }
 
 .w3-row-padding {
-    padding-top: 80px; /* Adjust this value based on your navbar height */
+    padding-top: 60px; /* Adjust this value based on your navbar height */
 }
 
 /* Ensure all items are visible */
@@ -28,15 +28,15 @@ h1 {
     display: inline-block; /* Keep items in a row */
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
-    .w3-bar {
-        flex-direction: column; /* Stack items vertically on small screens */
+    .w3-row-padding {
+        padding-top: 80px; /* More padding for mobile devices if needed */
     }
     
     .w3-bar-item {
-        width: 100%; /* Make each item full width */
-        text-align: center; /* Center text for better appearance */
+        display: block; /* Stack items vertically on small screens */
+        width: 100%; /* Full width for each item */
+        text-align: center; /* Center text */
     }
 }
 
