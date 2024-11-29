@@ -54,4 +54,18 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('averageButton').addEventListener('click', calculateAverage);
 });
 
+// Clear functions for each operation
+function clearFactorial() {
+    document.getElementById('factorialInput').value = '';
+    document.getElementById('factorialResult').innerText = '';
+}
 
+function clearSum() {
+    document.getElementById('sumInput').value = '';
+    document.getElementById('sumResult').innerText = '';
+}
+
+function clearAverage() {
+    document.getElementById('averageInput').value = '';
+    document.getElementById('averageResult').innerText = '';
+}
