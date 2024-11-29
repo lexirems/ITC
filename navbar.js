@@ -35,3 +35,14 @@ window.addEventListener('resize', function() {
         document.getElementById("myLinks").style.display = "none"; // Hide links on smaller screens
     }
 });
+
+// Initial load check
+window.onload = function() {
+    var x = document.getElementById("myLinks");
+    
+    if (window.innerWidth > 600) {
+        x.style.display = "block"; // Show links if on larger screens
+    } else {
+        x.style.display = "none"; // Hide links if on smaller screens
+    }
+};
