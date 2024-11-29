@@ -35,12 +35,13 @@ function showPayroll() {
     initPayroll();
 
     document.getElementById('addEmployeeButton').addEventListener('click', () => {
-        const name = document.getElementById('employeeName').value;
+        const name = document.getElementById('employeeName').value.trim();
         const daysWorked = parseInt(document.getElementById('daysWorked').value);
         const dailyRate = parseFloat(document.getElementById('dailyRate').value);
         const deductionAmount = parseFloat(document.getElementById('deductionAmount').value);
 
-        if (name === '' || isNaN(daysWorked) || isNaN(dailyRate) || isNaN(deductionAmount)) {
+        // Validation for input fields
+        if (name === '' || isNaN(daysWorked) || daysWorked < 0 || isNaN(dailyRate) || dailyRate < 0 || isNaN(deductionAmount) || deductionAmount < 0) {
             alert('Please fill in all fields correctly.');
             return;
         }
@@ -64,7 +65,7 @@ function showPayroll() {
         document.getElementById('inputModal').style.display = 'none';
     }
 
-    document.getElementById('nextDeleteButton').addEventListener('click', confirmDelete); // Updated ID
+    document.getElementById('nextDeleteButton').addEventListener('click', confirmDelete);
 
     function confirmDelete() {
         const lineNumber = parseInt(document.getElementById('lineNumberToDelete').value);
@@ -73,7 +74,7 @@ function showPayroll() {
             payroll.splice(lineNumber - 1, 1);
             showPayroll();
             closeInputModal(); // Close modal after deletion
-            document.getElementById('lineNumberToDelete').value = ''; // Clear input field for deletion
+            clearDeleteInput(); // Clear input field for deletion
         } else {
             alert('Invalid line number. Please enter a valid number.');
         }
@@ -84,6 +85,10 @@ function showPayroll() {
         document.getElementById('daysWorked').value = '';
         document.getElementById('dailyRate').value = '';
         document.getElementById('deductionAmount').value = '';
+   }
+
+   function clearDeleteInput() {
+       document.getElementById('lineNumberToDelete').value = ''; // Clear input field for deletion
    }
 
    window.onclick = function(event) {
