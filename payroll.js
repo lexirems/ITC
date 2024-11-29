@@ -1,4 +1,3 @@
-// JavaScript Code
 //------------Global Variables
 let payroll = [];
 
@@ -16,7 +15,8 @@ function computeNetPay() {
     if (!isNaN(daysWorked) && !isNaN(dailyRate) && !isNaN(deductionAmount)) {
         const grossPay = daysWorked * dailyRate;
         const netPay = grossPay - deductionAmount;
-        document.getElementById("netPayDisplay").innerText = ConvertDecimal(netPay, 2); // Example display element
+        // Remove or comment out this line if you don't want to display net pay directly
+        // document.getElementById("netPayDisplay").innerText = ConvertDecimal(netPay, 2); // Example display element
     }
 }
 
@@ -29,7 +29,6 @@ function initPayroll() {
 // Function to display payroll
 function showPayroll() {
     let tbody = '';
-    let totalNetPay = 0;
 
     payroll.forEach((employee, index) => {
         tbody += `<tr>
@@ -41,12 +40,9 @@ function showPayroll() {
             <td style='text-align:right'>${ConvertDecimal(employee.deductionAmount, 2)}</td>
             <td style='text-align:right'>${ConvertDecimal(employee.netPay, 2)}</td>
         </tr>`;
-        
-        totalNetPay += employee.netPay;
     });
 
     document.getElementById("payrollBody").innerHTML = tbody;
-    document.getElementById("totalNetPay").innerHTML = ConvertDecimal(totalNetPay, 2);
 }
 
 // Main program
@@ -103,7 +99,7 @@ function showPayroll() {
         document.getElementById('daysWorked').value = '';
         document.getElementById('dailyRate').value = '';
         document.getElementById('deductionAmount').value = '';
-        
+   }
 
    window.onclick = function(event) {
        const inputModal = document.getElementById('inputModal');
