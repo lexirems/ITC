@@ -15,7 +15,8 @@ function computeNetPay() {
     if (!isNaN(daysWorked) && !isNaN(dailyRate) && !isNaN(deductionAmount)) {
         const grossPay = daysWorked * dailyRate;
         const netPay = grossPay - deductionAmount;
-        document.getElementById("netPay").value = ConvertDecimal(netPay, 2);
+        // No input field for netPay; consider using a display element instead
+        document.getElementById("netPayDisplay").innerText = ConvertDecimal(netPay, 2); // Example display element
     }
 }
 
@@ -35,11 +36,12 @@ function showPayroll() {
             <td>${index + 1}</td>
             <td>${employee.name}</td>
             <td>${employee.daysWorked}</td>
-            <td style="text-align:right">${ConvertDecimal(employee.dailyRate, 2)}</td>
-            <td style="text-align:right">${ConvertDecimal(employee.grossPay, 2)}</td>
-            <td style="text-align:right">${ConvertDecimal(employee.deductionAmount, 2)}</td>
-            <td style="text-align:right">${ConvertDecimal(employee.netPay, 2)}</td>
+            <td style='text-align:right'>${ConvertDecimal(employee.dailyRate, 2)}</td>
+            <td style='text-align:right'>${ConvertDecimal(employee.grossPay, 2)}</td>
+            <td style='text-align:right'>${ConvertDecimal(employee.deductionAmount, 2)}</td>
+            <td style='text-align:right'>${ConvertDecimal(employee.netPay, 2)}</td>
         </tr>`;
+        
         totalNetPay += employee.netPay;
     });
 
@@ -81,7 +83,7 @@ function showPayroll() {
         document.getElementById('inputModal').style.display = 'none';
     }
 
-    document.getElementById('confirmDeleteButton').addEventListener('click', confirmDelete);
+    document.getElementById('nextDeleteButton').addEventListener('click', confirmDelete); // Updated ID
 
     function confirmDelete() {
         const lineNumber = parseInt(document.getElementById('lineNumberToDelete').value);
@@ -100,10 +102,12 @@ function showPayroll() {
         document.getElementById('daysWorked').value = '';
         document.getElementById('dailyRate').value = '';
         document.getElementById('deductionAmount').value = '';
-        document.getElementById("netPay").value = '';
-    }
+        
+       // If you have a display for net pay:
+       document.getElementById("netPayDisplay").innerText = '0.00'; // Resetting display
+   }
 
-    window.onclick = function(event) {
+   window.onclick = function(event) {
        const inputModal = document.getElementById('inputModal');
        if (event.target == inputModal) {
            closeInputModal();
