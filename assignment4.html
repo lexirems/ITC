@@ -34,7 +34,7 @@
 <div class="w3-row-padding w3-padding-64">
     <div class="w3-content">
         <h2>Payroll Management System</h2>
-        <div class="flex-container">
+        <div class="input-container">
             <div class="converter">
                 <label for="employeeName">Employee Name:</label>
                 <input type="text" id="employeeName" placeholder="Enter employee name" style="width: 150px;"><br><br>
@@ -51,23 +51,23 @@
                 <button onclick="addEmployee()">Add Employee</button>
                 <button onclick="openModal()">Delete Employee</button><br>
             </div>
-
-            <table id="payrollTable">
-                <thead>
-                    <tr>
-                        <th>No.</th>
-                        <th>Employee Name</th>
-                        <th>Days Worked</th>
-                        <th>Daily Rate</th>
-                        <th>Gross Pay</th>
-                        <th>Deduction Amount</th>
-                        <th>Net Pay</th>
-                    </tr>
-                </thead>
-                <tbody id="payrollBody">
-                </tbody>
-            </table>
         </div>
+
+        <table id="payrollTable">
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Employee Name</th>
+                    <th>Days Worked</th>
+                    <th>Daily Rate</th>
+                    <th>Gross Pay</th>
+                    <th>Deduction Amount</th>
+                    <th>Net Pay</th>
+                </tr>
+            </thead>
+            <tbody id="payrollBody">
+            </tbody>
+        </table>
     </div>
 </div>
 
