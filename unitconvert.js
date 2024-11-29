@@ -1,0 +1,59 @@
+// Wait for the DOM to fully load
+document.addEventListener("DOMContentLoaded", function() {
+    // Attach event listeners to the buttons
+    document.getElementById("celsiusButton").addEventListener("click", convertCtoF);
+    document.getElementById("fahrenheitButton").addEventListener("click", convertFtoC);
+    document.getElementById("metersButton").addEventListener("click", convertMtoFt);
+    document.getElementById("feetButton").addEventListener("click", convertFtToM);
+});
+
+// Conversion functions
+function convertCtoF() {
+    const celsius = parseFloat(document.getElementById('celsius').value);
+    if (!isNaN(celsius)) {
+        const fahrenheit = (celsius * 9 / 5) + 32;
+        document.getElementById('resultCtoF').innerText = `${celsius} °C = ${fahrenheit.toFixed(2)} °F`;
+    } else {
+        document.getElementById('resultCtoF').innerText = 'Please enter a valid number.';
+    }
+}
+
+function convertFtoC() {
+    const fahrenheit = parseFloat(document.getElementById('fahrenheit').value);
+    if (!isNaN(fahrenheit)) {
+        const celsius = (fahrenheit - 32) * 5 / 9;
+        document.getElementById('resultFtoC').innerText = `${fahrenheit} °F = ${celsius.toFixed(2)} °C`;
+    } else {
+        document.getElementById('resultFtoC').innerText = 'Please enter a valid number.';
+    }
+}
+
+function convertMtoFt() {
+    const meters = parseFloat(document.getElementById('meters').value);
+    if (!isNaN(meters)) {
+        const feet = meters * 3.28084;
+        document.getElementById('resultMtoFt').innerText = `${meters} m = ${feet.toFixed(2)} ft`;
+    } else {
+        document.getElementById('resultMtoFt').innerText = 'Please enter a valid number.';
+    }
+}
+
+function convertFtToM() {
+    const feet = parseFloat(document.getElementById('feet').value);
+    if (!isNaN(feet)) {
+        const meters = feet / 3.28084;
+        document.getElementById('resultFtToM').innerText = `${feet} ft = ${meters.toFixed(2)} m`;
+    } else {
+        document.getElementById('resultFtToM').innerText = 'Please enter a valid number.';
+    }
+}
+
+// Navigation function
+function myFunction() {
+    var x = document.getElementById("navDemo");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else { 
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
