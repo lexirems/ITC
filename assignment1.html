@@ -1,109 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unit Converter</title>
-    <link rel="stylesheet" type="text/css" href="webstyle.css">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Helvetica:400,700">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header class="custom-header">
-    <h1 class="w3-margin 5" style="font-weight: bold; font-size: 70px;">Unit Converter</h1>
+<div id="navbar" class="w3-top" style="color: white;">
+    <div class="w3-bar w3-card w3-left-align w3-large">
+        <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large" 
+           href="javascript:void(0);" 
+           onclick="myFunction()" 
+           title="Toggle Navigation Menu">
+           <i class="fa fa-bars"></i>
+        </a>
+        <a href="lexineremediositc.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large" style="color: white;">Home</a>
+        <a href="assignment1.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large" style="color: white;">Assignment 1</a>
+        <a href="assignment2.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large" style="color: white;">Assignment 2</a>
+        <a href="assignment3.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large" style="color: white;">Assignment 3</a>
+        <a href="assignment4.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large" style="color: white;">Assignment 4</a>
+    </div>
+</div>
+
+<header class="w3-container w3-center w3-padding-32" style="background-color: #133E87"> 
+    <h1 style="color: white;"><b><br>Unit Converter</b></h1>
 </header>
 
 <div class="w3-row-padding w3-padding-64">
     <div class="w3-content">
         <div class="converter">
-            <h2 style="font-size: 40px;">Celsius to Fahrenheit</h2>
+            <h2>Celsius to Fahrenheit</h2>
             <label for="celsius">Celsius:</label>
             <input type="number" id="celsius" placeholder="Enter Celsius">
             <button onclick="convertCtoF()">Convert to Fahrenheit</button>
-            <p id="resultCtoF"></p>
+            <div class="result-box" id="resultCtoF"></div>
         </div>
 
         <div class="converter">
-            <h2 style="font-size: 40px;">Fahrenheit to Celsius</h2>
+            <h2>Fahrenheit to Celsius</h2>
             <label for="fahrenheit">Fahrenheit:</label>
             <input type="number" id="fahrenheit" placeholder="Enter Fahrenheit">
             <button onclick="convertFtoC()">Convert to Celsius</button>
-            <p id="resultFtoC"></p>
+            <div class="result-box" id="resultFtoC"></div>
         </div>
 
         <div class="converter">
-            <h2 style="font-size: 40px;">Meters to Feet</h2>
+            <h2>Meters to Feet</h2>
             <label for="meters">Meters:</label>
             <input type="number" id="meters" placeholder="Enter Meters">
             <button onclick="convertMtoFt()">Convert to Feet</button>
-            <p id="resultMtoFt"></p>
+            <div class="result-box" id="resultMtoFt"></div>
         </div>
 
         <div class="converter">
-            <h2 style="font-size: 40px;">Feet to Meters</h2>
+            <h2>Feet to Meters</h2>
             <label for="feet">Feet:</label>
             <input type="number" id="feet" placeholder="Enter Feet">
             <button onclick="convertFtToM()">Convert to Meters</button>
-            <p id="resultFtToM"></p>
+            <div class="result-box" id="resultFtToM"></div>
         </div>
     </div>
 </div>
 
-<div class="custom-footer">
-    <h1 class="w3-margin custom-footer">The best preparation for tomorrow is doing your best today.<br>H. Jackson Brown, Jr.</h1>
-</div>
+<footer class="w3-container w3-padding-32 w3-margin-top w3-center" style="background-color: #133E87">
+  <p style="color: white;">Ad Majorem dei Gloriam!</p>
+</footer>
 
-<script>
-    function convertCtoF() {
-        const celsius = parseFloat(document.getElementById('celsius').value);
-        if (!isNaN(celsius)) {
-            const fahrenheit = (celsius * 9/5) + 32;
-            document.getElementById('resultCtoF').innerText = `${celsius} °C = ${fahrenheit.toFixed(2)} °F`;
-        } else {
-            document.getElementById('resultCtoF').innerText = 'Please enter a valid number.';
-        }
-    }
-
-    function convertFtoC() {
-        const fahrenheit = parseFloat(document.getElementById('fahrenheit').value);
-        if (!isNaN(fahrenheit)) {
-            const celsius = (fahrenheit - 32) * 5/9;
-            document.getElementById('resultFtoC').innerText = `${fahrenheit} °F = ${celsius.toFixed(2)} °C`;
-        } else {
-            document.getElementById('resultFtoC').innerText = 'Please enter a valid number.';
-        }
-    }
-
-    function convertMtoFt() {
-        const meters = parseFloat(document.getElementById('meters').value);
-        if (!isNaN(meters)) {
-            const feet = meters * 3.28084;
-            document.getElementById('resultMtoFt').innerText = `${meters} m = ${feet.toFixed(2)} ft`;
-        } else {
-            document.getElementById('resultMtoFt').innerText = 'Please enter a valid number.';
-        }
-    }
-
-    function convertFtToM() {
-        const feet = parseFloat(document.getElementById('feet').value);
-        if (!isNaN(feet)) {
-            const meters = feet / 3.28084;
-            document.getElementById('resultFtToM').innerText = `${feet} ft = ${meters.toFixed(2)} m`;
-        } else {
-            document.getElementById('resultFtToM').innerText = 'Please enter a valid number.';
-        }
-    }
-
-    function myFunction() {
-      var x = document.getElementById("navDemo");
-      if (x.className.indexOf("w3-show") == -1) {
-          x.className += " w3-show";
-      } else { 
-          x.className = x.className.replace(" w3-show", "");
-      }
-    }
-</script>
+<script src="unitconvert.js"></script>
+<script src="navbar.js"></script>
 
 </body>
 </html>
