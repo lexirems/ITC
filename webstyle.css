@@ -145,3 +145,10 @@ table {
                 text-align: left; /* Align text to left */
             }
         }
+
+
+@media screen and (min-width: 769px) {
+    #myLinks {
+        display: block; /* Show links on larger screens */
+    }
+}
