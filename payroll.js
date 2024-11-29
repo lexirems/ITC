@@ -15,7 +15,7 @@ function computeNetPay() {
     if (!isNaN(daysWorked) && !isNaN(dailyRate) && !isNaN(deductionAmount)) {
         const grossPay = daysWorked * dailyRate;
         const netPay = grossPay - deductionAmount;
-        // No input field for netPay; consider using a display element instead
+        // Assuming you have a display for net pay
         document.getElementById("netPayDisplay").innerText = ConvertDecimal(netPay, 2); // Example display element
     }
 }
@@ -70,7 +70,7 @@ function showPayroll() {
         payroll.push({ name, daysWorked, dailyRate, grossPay, deductionAmount, netPay });
         
         showPayroll();
-        clearInputs();
+        clearInputs(); 
     });
 
     document.getElementById('deleteEmployeeButton').addEventListener('click', openInputModal);
@@ -91,7 +91,7 @@ function showPayroll() {
         if (lineNumber > 0 && lineNumber <= payroll.length) {
             payroll.splice(lineNumber - 1, 1);
             showPayroll();
-            closeInputModal();
+            closeInputModal(); 
         } else {
             alert('Invalid line number. Please enter a valid number.');
         }
@@ -103,8 +103,6 @@ function showPayroll() {
         document.getElementById('dailyRate').value = '';
         document.getElementById('deductionAmount').value = '';
         
-       // If you have a display for net pay:
-       document.getElementById("netPayDisplay").innerText = '0.00'; // Resetting display
    }
 
    window.onclick = function(event) {
