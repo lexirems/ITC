@@ -1,6 +1,7 @@
 let lastScrollTop = 0; 
 const navbar = document.getElementById('navbar'); 
 
+// Handle scroll event to hide/show navbar
 window.addEventListener('scroll', function() {
     let currentScroll = window.pageYOffset || document.documentElement.scrollTop; 
 
@@ -15,30 +16,14 @@ window.addEventListener('scroll', function() {
     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
 });
 
-function toggleMenu() {
-    const navMenu = document.getElementById("navMenu");
-    navMenu.classList.toggle("active"); // Toggle the 'active' class
-}
-
 // JavaScript for menu toggle
 function myFunction() {
     var x = document.getElementById("myLinks");
+    
     if (x.style.display === "block") {
         x.style.display = "none";
     } else {
         x.style.display = "block";
-    }
-}
-
-function myFunction() {
-    var x = document.getElementById("myLinks");
-    var navbar = document.getElementById("navbar");
-    if (x.style.display === "block") {
-        x.style.display = "none";
-        navbar.classList.remove("responsive");
-    } else {
-        x.style.display = "block";
-        navbar.classList.add("responsive");
     }
 }
 
