@@ -99,4 +99,17 @@ function clearInputs() {
     document.getElementById('employeeName').value = '';
     document.getElementById('daysWorked').value = '';
     document.getElementById('dailyRate').value = '';
-    document.getElement
+    document.getElementById('deductionAmount').value = '';
+}
+
+// Close modal when clicking outside of it
+window.onclick = function(event) {
+   const inputModal = document.getElementById('inputModal');
+   const confirmModal = document.getElementById('confirmModal');
+
+   if (event.target == inputModal) {
+       closeInputModal();
+   } else if (event.target == confirmModal) {
+       closeConfirmModal();
+   }
+};
