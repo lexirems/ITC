@@ -11,13 +11,19 @@
 
 <body>
 
-<div id="navbar" class="w3-top sticky-navbar">
+<div id="navbar" class="w3-top" style="color: white;">
     <div class="w3-bar w3-card w3-left-align w3-large">
-        <a href="index.html" class="w3-bar-item w3-button w3-padding-large" style="color: white;">Home</a>
-        <a href="assignment1.html" class="w3-bar-item w3-button w3-padding-large" style="color: white;">Assignment 1</a>
-        <a href="assignment2.html" class="w3-bar-item w3-button w3-padding-large" style="color: white;">Assignment 2</a>
-        <a href="assignment3.html" class="w3-bar-item w3-button w3-padding-large" style="color: white;">Assignment 3</a>
-        <a href="assignment4.html" class="w3-bar-item w3-button w3-padding-large" style="color: white;">Assignment 4</a>
+        <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large" 
+           href="javascript:void(0);" 
+           onclick="myFunction()" 
+           title="Toggle Navigation Menu">
+           <i class="fa fa-bars"></i>
+        </a>
+        <a href="index.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large" style="color: white;">Home</a>
+        <a href="assignment1.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large" style="color: white;">Assignment 1</a>
+        <a href="assignment2.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large" style="color: white;">Assignment 2</a>
+        <a href="assignment3.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large" style="color: white;">Assignment 3</a>
+        <a href="assignment4.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large" style="color: white;">Assignment 4</a>
     </div>
 </div>
 
@@ -68,36 +74,21 @@
 </div>
 
 <!-- First Modal for Inputting Line Number -->
-<div id='inputModal' class='modal' style='display:none;'>
+<div id='inputModal' class='modal'>
     <div class='modal-content'>
         <span class='close' onclick='closeInputModal()'>&times;</span>
         <h2>Delete Employee</h2>
         <p>Please enter the line number of the employee you want to delete:</p>
         <input type='number' id='lineNumberToDelete' placeholder='Enter line number to delete'><br><br>
         <!-- Changed ID to avoid duplication -->
-        <button id='nextDeleteButton'>Next</button> 
+        <button id='nextDeleteButton' onclick='confirmDelete()'>Next</button> 
         <button onclick='closeInputModal()'>Cancel</button>
-    </div>
-</div>
-
-<!-- Second Modal for Confirming Deletion -->
-<div id="confirmModal" class="modal" style="display: none;"> 
-    <div class="modal-content">
-        <span class="close" onclick="closeConfirmModal()">&times;</span>
-        <h2>Confirm Deletion</h2>
-        <p>Are you sure you want to delete this employee?</p>
-        <!-- Note that we don't pass a line number here -->
-        <button id="confirmDeleteButton">Yes, Delete</button> 
-        <button onclick="closeConfirmModal()">Cancel</button>
     </div>
 </div>
 
 <footer class='w3-container w3-padding-32 w3-margin-top w3-center' style='background-color: #133E87'>
   <p style='color: white;'>Ad Majorem dei Gloriam!</p>
 </footer>
-
-<script src='payroll.js'></script>
-<script src='navbar.js'></script>
-
+    
 </body>
 </html>
