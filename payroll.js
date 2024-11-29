@@ -55,10 +55,11 @@ function showPayroll() {
         clearInputs(); // Clear inputs after adding an employee
     });
 
+    // Open modal for deletion
     document.getElementById('deleteEmployeeButton').addEventListener('click', openInputModal);
 
     function openInputModal() {
-        document.getElementById('inputModal').style.display = 'block';
+        document.getElementById('inputModal').style.display = 'block'; // Show the modal
     }
 
     function closeInputModal() {
@@ -97,4 +98,11 @@ function showPayroll() {
            closeInputModal();
        }
    };
+
+   // Ensure the closing of the confirmation modal is handled properly
+   document.querySelector('.close').onclick = closeConfirmModal;
+
+   function closeConfirmModal() {
+       document.getElementById("confirmModal").style.display = "none"; 
+   }
 })();
