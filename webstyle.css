@@ -34,13 +34,19 @@ h1 {
     padding: 16px;
     border: 1px solid #ccc;
     border-radius: 8px;
-    background-color: #f9f9f9;
+    background-color: #f9f9f9; /* Background color for operation/converter */
 }
 
 /* Table Styling */
+table {
+    border-collapse: collapse; /* Collapses borders for a cleaner look */
+    border-radius: 10px; /* Rounded corners for the table */
+    overflow: hidden; /* Ensures rounded corners are visible */
+}
+
 th {
-    background-color: #787878; /* Solid color for header */
-    color: white; 
+    background-color: #133E87; /* Header background color */
+    color: white; /* Font color of header */
     padding: 15px; 
 }
 
@@ -51,16 +57,16 @@ td {
 
 /* Zebra Striping for Rows */
 tr:nth-child(odd) {
-    background-color: #f2f2f2; /* Slightly darker for odd rows */
+    background-color: #CBDCEB; /* Background color for odd rows */
 }
 
 tr:nth-child(even) {
-    background-color: #ffffff; 
+    background-color: #608BC1; /* Background color for even rows */
 }
 
 /* Hover Effect */
 tr:hover {
-    background-color: #e0e0e0; /* Slightly darker on hover */
+    background-color: #e0e0e0; /* Slightly darker on hover (changeable) */
 }
 
 .flex-container {
@@ -93,7 +99,7 @@ table {
 }
 
 .modal-content {
-    background-color: #CBDCEB;
+    background-color: #CBDCEB; /* Background color for modal (changeable) */
     margin: 15% auto; 
     padding: 15px; /* Reduced padding for a smaller modal */
     width: 300px; /* Set a specific width for the modal */
