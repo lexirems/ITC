@@ -104,9 +104,6 @@ function showPayroll() {
         document.getElementById('dailyRate').value = '';
         document.getElementById('deductionAmount').value = '';
         
-       // If you have a display for net pay:
-       document.getElementById("netPayDisplay").innerText = '0.00'; // Resetting display
-   }
 
    window.onclick = function(event) {
        const inputModal = document.getElementById('inputModal');
