@@ -30,6 +30,18 @@ function myFunction() {
     }
 }
 
+function myFunction() {
+    var x = document.getElementById("myLinks");
+    var navbar = document.getElementById("navbar");
+    if (x.style.display === "block") {
+        x.style.display = "none";
+        navbar.classList.remove("responsive");
+    } else {
+        x.style.display = "block";
+        navbar.classList.add("responsive");
+    }
+}
+
 // Ensure navbar is always visible on larger screens
 window.addEventListener('resize', function() {
     if (window.innerWidth > 600) {
