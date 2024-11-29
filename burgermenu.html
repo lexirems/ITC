@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="webstyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         /* General Styles */
         body, h1, h2, h3, h4, h5 {
@@ -24,6 +25,12 @@
 
         .topnav #myLinks {
             display: none; /* Hidden by default */
+            flex-direction: column; /* Stack links vertically */
+            position: absolute; /* Position it absolutely */
+            top: 50px; /* Position below navbar */
+            left: 0; /* Align to the left */
+            width: 100%; /* Full width */
+            background-color: #333; /* Background color */
         }
 
         .topnav a {
@@ -55,7 +62,11 @@
         /* Media query for tablet and mobile screens */
         @media (min-width: 768px) {
             .topnav #myLinks {
-                display: block; /* Show links in larger screens */
+                display: flex; /* Show links in larger screens */
+                position: static; /* Reset position */
+                flex-direction: row; /* Align links horizontally */
+                width: auto; /* Auto width */
+                background-color: transparent; /* Transparent background */
             }
             .topnav a.icon {
                 display: none; /* Hide hamburger icon in larger screens */
