@@ -14,3 +14,8 @@ window.addEventListener('scroll', function() {
     
     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
 });
+
+function toggleMenu() {
+    const navMenu = document.getElementById("navMenu");
+    navMenu.classList.toggle("active"); // Toggle the 'active' class
+}
