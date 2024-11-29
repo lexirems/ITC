@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <title>Unit Converter</title>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1">
-   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-   <link rel="stylesheet" href="webstyle.css">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Unit Converter</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -27,53 +26,52 @@
     </div>
 </div>
 
-<header class="w3-container w3-center w3-padding-32" style="background-color:#133E87"> 
-   <h1 style="color:white;"><b><br>Unit Converter</b></h1>
+<header class="w3-container w3-center w3-padding-32" style="background-color: #133E87"> 
+    <h1 style="color: white;"><b><br>Unit Converter</b></h1>
 </header>
 
 <div class="w3-row-padding w3-padding-64">
-   <div class="w3-content">
-       <!-- Your converter content goes here -->
-       <div class="converter">
-           <h2>Celsius to Fahrenheit</h2>
-           <label for="celsius">Celsius:</label>
-           <input type="number" id="celsius" placeholder="Enter Celsius">
-           <button onclick="convertCtoF()">Convert to Fahrenheit</button>
-           <div class="result-box" id="resultCtoF"></div>
-       </div>
+    <div class="w3-content">
+        <div class="converter">
+            <h2>Celsius to Fahrenheit</h2>
+            <label for="celsius">Celsius:</label>
+            <input type="number" id="celsius" placeholder="Enter Celsius">
+            <button onclick="convertCtoF()">Convert to Fahrenheit</button>
+            <div class="result-box" id="resultCtoF"></div>
+        </div>
 
-       <div class="converter">
-           <h2>Fahrenheit to Celsius</h2>
-           <label for="fahrenheit">Fahrenheit:</label>
-           <input type="number" id="fahrenheit" placeholder="Enter Fahrenheit">
-           <button onclick="convertFtoC()">Convert to Celsius</button>
-           <div class="result-box" id="resultFtoC"></div>
-       </div>
+        <div class="converter">
+            <h2>Fahrenheit to Celsius</h2>
+            <label for="fahrenheit">Fahrenheit:</label>
+            <input type="number" id="fahrenheit" placeholder="Enter Fahrenheit">
+            <button onclick="convertFtoC()">Convert to Celsius</button>
+            <div class="result-box" id="resultFtoC"></div>
+        </div>
 
-       <div class="converter">
-           <h2>Meters to Feet</h2>
-           <label for="meters">Meters:</label>
-           <input type="number" id="meters" placeholder="Enter Meters">
-           <button onclick="convertMtoFt()">Convert to Feet</button>
-           <div class="result-box" id="resultMtoFt"></div>
-       </div>
+        <div class="converter">
+            <h2>Meters to Feet</h2>
+            <label for="meters">Meters:</label>
+            <input type="number" id="meters" placeholder="Enter Meters">
+            <button onclick="convertMtoFt()">Convert to Feet</button>
+            <div class="result-box" id="resultMtoFt"></div>
+        </div>
 
-       <div class="converter">
-           <h2>Feet to Meters</h2>
-           <label for="feet">Feet:</label>
-           <input type="number" id="feet" placeholder="Enter Feet">
-           <button onclick="convertFtToM()">Convert to Meters</button>
-           <div class="result-box" id="resultFtToM"></div>
-       </div>
-   </div>
+        <div class="converter">
+            <h2>Feet to Meters</h2>
+            <label for="feet">Feet:</label>
+            <input type="number" id="feet" placeholder="Enter Feet">
+            <button onclick="convertFtToM()">Convert to Meters</button>
+            <div class="result-box" id="resultFtToM"></div>
+        </div>
+    </div>
 </div>
 
-<footer class="w3-container w3-padding-32 w3-margin-top w3-center" style="background-color:#133E87">
-   <p style="color:white;">Ad Majorem dei Gloriam!</p>
+<footer class="w3-container w3-padding-32 w3-margin-top w3-center" style="background-color: #133E87">
+  <p style="color: white;">Ad Majorem dei Gloriam!</p>
 </footer>
 
-<script src="unitconvert.js"></script> <!-- Ensure this file contains your conversion logic -->
-<script src="navbar.js"></script> <!-- Ensure this file contains your navigation logic -->
+<script src="unitconvert.js"></script>
+<script src="navbar.js"></script>
 
 </body>
 </html>
