@@ -1,10 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<link rel="stylesheet" href="webstyle.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="webstyle.css">
+    <style>
+        /* General Styles */
+        body, h1, h2, h3, h4, h5 {
+            font-family: "Raleway", sans-serif; 
+        }
+
+        body {
+            background-color: #ffffe6; /* Set background color here */
+        }
+
+        /* Navigation Bar */
+        .topnav {
+            overflow: hidden;
+            background-color: #333;
+            position: relative;
+        }
+
+        .topnav #myLinks {
+            display: none; /* Hidden by default */
+        }
+
+        .topnav a {
+            color: white;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+            display: block;
+        }
+
+        .topnav a.icon {
+            background: black;
+            display: block;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .active {
+            background-color: #04AA6D;
+            color: white;
+        }
+
+        /* Media query for tablet and mobile screens */
+        @media (min-width: 768px) {
+            .topnav #myLinks {
+                display: block; /* Show links in larger screens */
+            }
+            .topnav a.icon {
+                display: none; /* Hide hamburger icon in larger screens */
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -23,6 +80,11 @@
     </a>
 </div>
 
+<div style="padding-left:16px">
+    <h3>Responsive Hamburger Menu Example</h3>
+    <p>This example demonstrates how a navigation menu on a mobile/tablet device could look like.</p>
+    <p>Click on the hamburger menu (three bars) in the top right corner to toggle the menu.</p>
+</div>
 
 <script>
 function myFunction() {
