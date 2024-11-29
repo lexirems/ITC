@@ -1,3 +1,4 @@
+// JavaScript Code
 //------------Global Variables
 let payroll = [];
 
@@ -15,7 +16,6 @@ function computeNetPay() {
     if (!isNaN(daysWorked) && !isNaN(dailyRate) && !isNaN(deductionAmount)) {
         const grossPay = daysWorked * dailyRate;
         const netPay = grossPay - deductionAmount;
-        // Assuming you have a display for net pay
         document.getElementById("netPayDisplay").innerText = ConvertDecimal(netPay, 2); // Example display element
     }
 }
@@ -70,7 +70,7 @@ function showPayroll() {
         payroll.push({ name, daysWorked, dailyRate, grossPay, deductionAmount, netPay });
         
         showPayroll();
-        clearInputs(); 
+        clearInputs(); // Clear inputs after adding an employee
     });
 
     document.getElementById('deleteEmployeeButton').addEventListener('click', openInputModal);
@@ -91,7 +91,8 @@ function showPayroll() {
         if (lineNumber > 0 && lineNumber <= payroll.length) {
             payroll.splice(lineNumber - 1, 1);
             showPayroll();
-            closeInputModal(); 
+            closeInputModal(); // Close modal after deletion
+            document.getElementById('lineNumberToDelete').value = ''; // Clear input field for deletion
         } else {
             alert('Invalid line number. Please enter a valid number.');
         }
@@ -103,6 +104,8 @@ function showPayroll() {
         document.getElementById('dailyRate').value = '';
         document.getElementById('deductionAmount').value = '';
         
+       // If you have a display for net pay:
+       document.getElementById("netPayDisplay").innerText = '0.00'; // Resetting display
    }
 
    window.onclick = function(event) {
