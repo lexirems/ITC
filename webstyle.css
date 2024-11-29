@@ -17,7 +17,7 @@ h1 {
     position: sticky; /* Make the navbar sticky */
     top: 0; /* Stick to the top of the viewport */
     width: 100%; /* Full width */
-    background-color: #333; /* Background color of navbar */
+    background-color: #133E87; /* Background color of navbar */
     z-index: 1000; /* Ensure it stays above other content */
 }
 
