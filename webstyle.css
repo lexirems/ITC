@@ -21,6 +21,13 @@ h1 {
     border-radius: 5px;
 }
 
+/* Navigation Bar */
+.w3-top {
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
 /* Operation and Converter Styling */
 .operation, .converter {
     margin-bottom: 32px;
@@ -73,6 +80,11 @@ tr:hover {
     flex: 1; /* Allows the input container to grow */
 }
 
+table {
+    flex: 2; /* Allows the table to take more space */
+    margin: 0; /* Remove auto margin to align with input container */
+}
+
 /* Modal Styling */
 .modal {
     display: none; 
@@ -92,6 +104,7 @@ tr:hover {
     padding: 15px; /* Reduced padding for a smaller modal */
     width: 300px; /* Set a specific width for the modal */
     border-radius: 8px; /* Rounded corners for modal */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Shadow effect */
 }
 
 /* Close Button Styling */
@@ -104,44 +117,4 @@ tr:hover {
 .close:hover,
 .close:focus {
     color: black;
-}
-
-/* Navigation Bar Styles */
-.topnav {
-            overflow: hidden;
-            background-color: #133E87;
-        }
-
-.topnav a {
-            float: left;
-            display: none; /* Hidden by default on small screens */
-            color: white;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
-
-.topnav a.icon {
-            float: right;
-            display: block; /* Show hamburger icon on small screens */
-        }
-
-@media screen and (max-width: 600px) {
-            .topnav a {display: none;} /* Hide links by default on small screens */
-            .topnav a.icon {
-                float: right; /* Keep hamburger icon on right */
-                display: block; /* Show hamburger icon on small screens */
-            }
-            .topnav.responsive {position: relative;}
-            .topnav.responsive a {
-                float: none; /* Stack links vertically in responsive mode */
-                display: block; /* Show links in responsive mode */
-                text-align:left; /* Align text to left in responsive mode */
-            }
-        }
-
-@media screen and (min-width: 769px) {
-            #myLinks {
-                display:block; /* Show links on larger screens by default */
-            }
 }
