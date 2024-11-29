@@ -3,7 +3,7 @@ let payrollList = [];
 // Wait for the DOM to fully load before attaching event listeners
 document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('addEmployeeButton').addEventListener('click', addEmployee);
-    document.getElementById('confirmDeleteButton').addEventListener('click', openInputModal); // Open input modal
+    document.getElementById('deleteEmployeeButton').addEventListener('click', openInputModal);
 });
 
 // Function to add an employee to the payroll list
@@ -63,14 +63,14 @@ function closeConfirmModal() {
     document.getElementById('confirmModal').style.display = 'none';
 }
 
-// Function to confirm deletion of an employee
 function confirmDelete() {
     const lineNumber = parseInt(document.getElementById('lineNumberToDelete').value);
-
     if (lineNumber > 0 && lineNumber <= payrollList.length) {
         payrollList.splice(lineNumber - 1, 1); // Remove the employee from the list
-        updatePayrollTable();
+        updatePayrollTable(); // Update the displayed table
         alert("Employee deleted successfully.");
+    } else {
+        alert("Invalid line number. Please try again."); // Handle invalid line number
     }
     
     closeConfirmModal(); // Close confirmation modal
