@@ -68,14 +68,14 @@
 </div>
 
 <!-- First Modal for Inputting Line Number -->
-<div id='inputModal' class='modal'>
+<div id='inputModal' class='modal' style='display:none;'>
     <div class='modal-content'>
         <span class='close' onclick='closeInputModal()'>&times;</span>
         <h2>Delete Employee</h2>
         <p>Please enter the line number of the employee you want to delete:</p>
         <input type='number' id='lineNumberToDelete' placeholder='Enter line number to delete'><br><br>
         <!-- Changed ID to avoid duplication -->
-        <button id='nextDeleteButton' onclick='confirmDelete()'>Next</button> 
+        <button id='nextDeleteButton'>Next</button> 
         <button onclick='closeInputModal()'>Cancel</button>
     </div>
 </div>
@@ -95,6 +95,9 @@
 <footer class='w3-container w3-padding-32 w3-margin-top w3-center' style='background-color: #133E87'>
   <p style='color: white;'>Ad Majorem dei Gloriam!</p>
 </footer>
-    
+
+<script src='payroll.js'></script>
+<script src='navbar.js'></script>
+
 </body>
 </html>
