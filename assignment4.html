@@ -46,12 +46,17 @@
                     <label for="dailyRate">Daily Rate:</label><br>
                     <input type="number" id="dailyRate" placeholder="Enter daily rate" min="0" style="width: 150px;"><br><br>
 
-                    <label for="deductionAmount">Deduction Amount:</label>
+                    <label for="deductionAmount">Deduction Amount:</label><br>
                     <input type="number" id="deductionAmount" placeholder="Enter deduction amount" min="0" style="width: 150px;"><br><br>
 
                     <button id="addEmployeeButton">Add Employee</button>
                     <button id="deleteEmployeeButton">Delete Employee</button>
                 </div>
+            </div>
+
+            <!-- Added a div to display total net pay -->
+            <div id='totalNetPayContainer'>
+                Total Net Pay: <span id='totalNetPay'>0.00</span>
             </div>
 
             <table id="payrollTable">
@@ -79,32 +84,31 @@
         <span class="close" onclick="closeInputModal()">&times;</span>
         <h2>Delete Employee</h2>
         <p>Please enter the line number of the employee you want to delete:</p>
-        <input type="number" id="lineNumberToDelete" placeholder="Enter line number to delete"><br><br>
-        <button id="confirmDeleteButton" onclick="openConfirmModal()">Next</button>
-        <button onclick="closeInputModal()">Cancel</button>
+        <input type="number" id='lineNumberToDelete' placeholder='Enter line number to delete'><br><br>
+        <!-- Changed ID to avoid duplication -->
+        <button id='nextDeleteButton' onclick='openConfirmModal()'>Next</button> 
+        <button onclick='closeInputModal()'>Cancel</button>
     </div>
 </div>
 
 <!-- Second Modal for Confirming Deletion -->
-<div id="confirmModal" class="modal" style="display: none;"> 
-    <div class="modal-content">
-        <span class="close" onclick="closeConfirmModal()">&times;</span>
+<div id='confirmModal' class='modal' style='display: none;'> 
+    <div class='modal-content'>
+        <span class='close' onclick='closeConfirmModal()'>&times;</span>
         <h2>Confirm Deletion</h2>
         <p>Are you sure you want to delete this employee?</p>
-        <button id="confirmDeleteButton" onclick="confirmDelete()">Yes, Delete</button> 
-        <button onclick="closeConfirmModal()">Cancel</button>
+        <!-- Kept ID for confirm delete button -->
+        <button id='confirmDeleteButton' onclick='confirmDelete()'>Yes, Delete</button> 
+        <button onclick='closeConfirmModal()'>Cancel</button>
     </div>
 </div>
 
-<!-- Your existing HTML content goes here -->
-
-<footer class="w3-container w3-padding-32 w3-margin-top w3-center" style="background-color: #133E87">
-  <p style="color: white;">Ad Majorem dei Gloriam!</p>
+<footer class='w3-container w3-padding-32 w3-margin-top w3-center' style='background-color: #133E87'>
+  <p style='color: white;'>Ad Majorem dei Gloriam!</p>
 </footer>
 
-<script src="payroll.js"></script>
-<script src="navbar.js"></script>
-
+<script src='payroll.js'></script>
+<script src='navbar.js'></script>
 
 </body>
 </html>
