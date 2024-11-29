@@ -64,19 +64,31 @@ function showPayroll() {
         document.getElementById('inputModal').style.display = 'none';
     }
 
-    document.getElementById('nextDeleteButton').addEventListener('click', confirmDelete); // Updated ID
+    document.getElementById('nextDeleteButton').addEventListener('click', openConfirmModal);
 
-    function confirmDelete() {
+    function openConfirmModal() {
         const lineNumber = parseInt(document.getElementById('lineNumberToDelete').value);
         
         if (lineNumber > 0 && lineNumber <= payroll.length) {
-            payroll.splice(lineNumber - 1, 1);
-            showPayroll();
-            closeInputModal(); // Close modal after deletion
-            document.getElementById('lineNumberToDelete').value = ''; // Clear input field for deletion
+            // Open confirmation modal
+            document.getElementById('inputModal').style.display = 'none'; // Close input modal
+            document.getElementById('confirmModal').style.display = 'block'; // Show confirm modal
+            document.getElementById('confirmDeleteButton').onclick = () => confirmDelete(lineNumber);
         } else {
             alert('Invalid line number. Please enter a valid number.');
         }
+    }
+
+    function confirmDelete(lineNumber) {
+        payroll.splice(lineNumber - 1, 1);
+        showPayroll();
+        closeConfirmModal(); // Close confirmation modal
+        closeInputModal(); // Close input modal if still open
+        document.getElementById('lineNumberToDelete').value = ''; // Clear input field for deletion
+    }
+
+    function closeConfirmModal() {
+        document.getElementById('confirmModal').style.display = 'none';
     }
 
     function clearInputs() {
@@ -88,8 +100,11 @@ function showPayroll() {
 
    window.onclick = function(event) {
        const inputModal = document.getElementById('inputModal');
+       const confirmModal = document.getElementById('confirmModal');
        if (event.target == inputModal) {
            closeInputModal();
+       } else if (event.target == confirmModal) {
+           closeConfirmModal();
        }
    };
 })();
