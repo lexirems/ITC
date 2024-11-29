@@ -1,23 +1,8 @@
-//------------Global Variables
 let payroll = [];
 
 // Function to convert a value to x decimal places
 function ConvertDecimal(value, decimals) {
     return isNaN(value) ? '' : value.toFixed(decimals);
-}
-
-// Function to compute net pay
-function computeNetPay() {
-    const daysWorked = parseInt(document.getElementById('daysWorked').value);
-    const dailyRate = parseFloat(document.getElementById('dailyRate').value);
-    const deductionAmount = parseFloat(document.getElementById('deductionAmount').value);
-
-    if (!isNaN(daysWorked) && !isNaN(dailyRate) && !isNaN(deductionAmount)) {
-        const grossPay = daysWorked * dailyRate;
-        const netPay = grossPay - deductionAmount;
-        // Remove or comment out this line if you don't want to display net pay directly
-        // document.getElementById("netPayDisplay").innerText = ConvertDecimal(netPay, 2); // Example display element
-    }
 }
 
 // Function to initialize payroll
