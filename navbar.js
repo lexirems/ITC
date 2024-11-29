@@ -20,7 +20,7 @@ function toggleMenu() {
     navMenu.classList.toggle("active"); // Toggle the 'active' class
 }
 
-// Function to toggle the visibility of the links
+// JavaScript for menu toggle
 function myFunction() {
     var x = document.getElementById("myLinks");
     if (x.style.display === "block") {
@@ -29,3 +29,12 @@ function myFunction() {
         x.style.display = "block";
     }
 }
+
+// Ensure navbar is always visible on larger screens
+window.addEventListener('resize', function() {
+    if (window.innerWidth > 600) {
+        document.getElementById("myLinks").style.display = "block"; // Show links on larger screens
+    } else {
+        document.getElementById("myLinks").style.display = "none"; // Hide links on smaller screens
+    }
+});
