@@ -47,14 +47,19 @@
                     <input type="number" id="dailyRate" placeholder="Enter daily rate" min="0" style="width: 150px;"><br><br>
 
                     <label for="deductionAmount">Deduction Amount:</label><br>
-                    <input type="number" id="deductionAmount" placeholder="Enter deduction amount" min="0" style="width: 150px;"><br><br>
+                    <input type="number" id='deductionAmount' placeholder='Enter deduction amount' min='0' style='width: 150px;'><br><br>
 
-                    <button id="addEmployeeButton">Add Employee</button>
-                    <button id="deleteEmployeeButton">Delete Employee</button>
+                    <button id='addEmployeeButton'>Add Employee</button>
+                    <button id='deleteEmployeeButton'>Delete Employee</button>
                 </div>
             </div>
 
-            <table id="payrollTable">
+            <!-- Display Total Net Pay -->
+            <div id='totalNetPayContainer'>
+                Total Net Pay: <span id='totalNetPay'>0.00</span>
+            </div>
+
+            <table id='payrollTable'>
                 <thead>
                     <tr>
                         <th>No.</th>
@@ -66,7 +71,7 @@
                         <th>Net Pay</th>
                     </tr>
                 </thead>
-                <tbody id="payrollBody">
+                <tbody id='payrollBody'>
                 </tbody>
             </table>
         </div>
@@ -74,14 +79,14 @@
 </div>
 
 <!-- First Modal for Inputting Line Number -->
-<div id="inputModal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeInputModal()">&times;</span>
+<div id='inputModal' class='modal'>
+    <div class='modal-content'>
+        <span class='close' onclick='closeInputModal()'>&times;</span>
         <h2>Delete Employee</h2>
         <p>Please enter the line number of the employee you want to delete:</p>
-        <input type="number" id='lineNumberToDelete' placeholder='Enter line number to delete'><br><br>
+        <input type='number' id='lineNumberToDelete' placeholder='Enter line number to delete'><br><br>
         <!-- Changed ID to avoid duplication -->
-        <button id='nextDeleteButton' onclick='openConfirmModal()'>Next</button> 
+        <button id='nextDeleteButton' onclick='confirmDelete()'>Next</button> 
         <button onclick='closeInputModal()'>Cancel</button>
     </div>
 </div>
