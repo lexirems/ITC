@@ -30,7 +30,7 @@ h1 {
 
 @media (max-width: 768px) {
     .w3-row-padding {
-        padding-top: 80px; /* More padding for mobile devices if needed */
+        padding-top: 60px; /* More padding for mobile devices if needed */
     }
     
     .w3-bar-item {
