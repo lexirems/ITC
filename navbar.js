@@ -19,3 +19,13 @@ function toggleMenu() {
     const navMenu = document.getElementById("navMenu");
     navMenu.classList.toggle("active"); // Toggle the 'active' class
 }
+
+// Function to toggle the visibility of the links
+function myFunction() {
+    var x = document.getElementById("myLinks");
+    if (x.style.display === "block") {
+        x.style.display = "none";
+    } else {
+        x.style.display = "block";
+    }
+}
