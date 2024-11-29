@@ -74,14 +74,14 @@
 </div>
 
 <!-- First Modal for Inputting Line Number -->
-<div id='inputModal' class='modal'>
+<div id='inputModal' class='modal' style='display:none;'>
     <div class='modal-content'>
         <span class='close' onclick='closeInputModal()'>&times;</span>
         <h2>Delete Employee</h2>
         <p>Please enter the line number of the employee you want to delete:</p>
         <input type='number' id='lineNumberToDelete' placeholder='Enter line number to delete'><br><br>
         <!-- Changed ID to avoid duplication -->
-        <button id='nextDeleteButton' onclick='confirmDelete()'>Next</button> 
+        <button id='nextDeleteButton'>Next</button> 
         <button onclick='closeInputModal()'>Cancel</button>
     </div>
 </div>
@@ -92,6 +92,7 @@
         <span class="close" onclick="closeConfirmModal()">&times;</span>
         <h2>Confirm Deletion</h2>
         <p>Are you sure you want to delete this employee?</p>
+        <!-- Note that we don't pass a line number here -->
         <button id="confirmDeleteButton">Yes, Delete</button> 
         <button onclick="closeConfirmModal()">Cancel</button>
     </div>
