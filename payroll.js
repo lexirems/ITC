@@ -35,13 +35,12 @@ function showPayroll() {
     initPayroll();
 
     document.getElementById('addEmployeeButton').addEventListener('click', () => {
-        const name = document.getElementById('employeeName').value.trim();
+        const name = document.getElementById('employeeName').value;
         const daysWorked = parseInt(document.getElementById('daysWorked').value);
         const dailyRate = parseFloat(document.getElementById('dailyRate').value);
         const deductionAmount = parseFloat(document.getElementById('deductionAmount').value);
 
-        // Validation for input fields
-        if (name === '' || isNaN(daysWorked) || daysWorked < 0 || isNaN(dailyRate) || dailyRate < 0 || isNaN(deductionAmount) || deductionAmount < 0) {
+        if (name === '' || isNaN(daysWorked) || isNaN(dailyRate) || isNaN(deductionAmount)) {
             alert('Please fill in all fields correctly.');
             return;
         }
@@ -55,30 +54,43 @@ function showPayroll() {
         clearInputs(); // Clear inputs after adding an employee
     });
 
-    // Open modal for deletion
     document.getElementById('deleteEmployeeButton').addEventListener('click', openInputModal);
 
     function openInputModal() {
-        document.getElementById('inputModal').style.display = 'block'; // Show the modal
+        document.getElementById('inputModal').style.display = 'block';
     }
 
     function closeInputModal() {
         document.getElementById('inputModal').style.display = 'none';
     }
 
-    document.getElementById('nextDeleteButton').addEventListener('click', confirmDelete);
+    document.getElementById('nextDeleteButton').addEventListener('click', openConfirmModal);
 
-    function confirmDelete() {
+    function openConfirmModal() {
         const lineNumber = parseInt(document.getElementById('lineNumberToDelete').value);
         
         if (lineNumber > 0 && lineNumber <= payroll.length) {
-            payroll.splice(lineNumber - 1, 1);
-            showPayroll();
-            closeInputModal(); // Close modal after deletion
-            clearDeleteInput(); // Clear input field for deletion
+            // Open confirmation modal
+            document.getElementById('inputModal').style.display = 'none'; // Close input modal
+            document.getElementById('confirmModal').style.display = 'block'; // Show confirm modal
+            
+            // Set up confirm button to delete the employee
+            document.getElementById('confirmDeleteButton').onclick = () => confirmDelete(lineNumber);
         } else {
             alert('Invalid line number. Please enter a valid number.');
         }
+    }
+
+    function confirmDelete(lineNumber) {
+        payroll.splice(lineNumber - 1, 1);
+        showPayroll();
+        closeConfirmModal(); // Close confirmation modal
+        closeInputModal(); // Close input modal if still open
+        document.getElementById('lineNumberToDelete').value = ''; // Clear input field for deletion
+    }
+
+    function closeConfirmModal() {
+        document.getElementById('confirmModal').style.display = 'none';
     }
 
     function clearInputs() {
@@ -88,21 +100,13 @@ function showPayroll() {
         document.getElementById('deductionAmount').value = '';
    }
 
-   function clearDeleteInput() {
-       document.getElementById('lineNumberToDelete').value = ''; // Clear input field for deletion
-   }
-
    window.onclick = function(event) {
        const inputModal = document.getElementById('inputModal');
+       const confirmModal = document.getElementById('confirmModal');
        if (event.target == inputModal) {
            closeInputModal();
+       } else if (event.target == confirmModal) {
+           closeConfirmModal();
        }
    };
-
-   // Ensure the closing of the confirmation modal is handled properly
-   document.querySelector('.close').onclick = closeConfirmModal;
-
-   function closeConfirmModal() {
-       document.getElementById("confirmModal").style.display = "none"; 
-   }
 })();
