@@ -57,3 +57,24 @@ function myFunction() {
         x.className = x.className.replace(" w3-show", "");
     }
 }
+
+// Clear functions for each converter
+function clearCtoF() {
+    document.getElementById('celsius').value = '';
+    document.getElementById('resultCtoF').innerText = '';
+}
+
+function clearFtoC() {
+    document.getElementById('fahrenheit').value = '';
+    document.getElementById('resultFtoC').innerText = '';
+}
+
+function clearMtoFt() {
+    document.getElementById('meters').value = '';
+    document.getElementById('resultMtoFt').innerText = '';
+}
+
+function clearFtToM() {
+    document.getElementById('feet').value = '';
+    document.getElementById('resultFtToM').innerText = '';
+}
