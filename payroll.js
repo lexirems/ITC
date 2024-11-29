@@ -69,9 +69,6 @@ function confirmDelete() {
     if (lineNumber > 0 && lineNumber <= payrollList.length) {
         payrollList.splice(lineNumber - 1, 1); // Remove the employee from the list
         updatePayrollTable(); // Update the displayed table
-        alert("Employee deleted successfully.");
-    } else {
-        alert("Invalid line number. Please try again."); // Handle invalid line number
     }
     
     closeConfirmModal(); // Close confirmation modal
@@ -102,13 +99,4 @@ function clearInputs() {
     document.getElementById('employeeName').value = '';
     document.getElementById('daysWorked').value = '';
     document.getElementById('dailyRate').value = '';
-    document.getElementById('deductionAmount').value = '';
-}
-
-// Close modal when clicking outside of it
-window.onclick = function(event) {
-   const inputModal = document.getElementById('inputModal');
-   const confirmModal = document.getElementById('confirmModal');
-
-   if (event.target == inputModal) {
-       closeInput
+    document.getElement
