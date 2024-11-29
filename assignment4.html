@@ -2,129 +2,107 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Payroll</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-    <link rel="stylesheet" href="webstyle.css">
+    <link rel="stylesheet" href="webstyle.css">   
 </head>
+
 <body>
 
-<header class="custom-header">
-    <h1 class="w3-margin h1-colored" style="font-weight: bold; font-size: 70px;">Simple Payroll</h1>
+<div id="navbar" class="w3-top" style="color: white;">
+    <div class="w3-bar w3-card w3-left-align w3-large">
+        <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large" 
+           href="javascript:void(0);" 
+           onclick="myFunction()" 
+           title="Toggle Navigation Menu">
+           <i class="fa fa-bars"></i>
+        </a>
+        <a href="lexineremediositc.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large" style="color: white;">Home</a>
+        <a href="assignment1.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large" style="color: white;">Assignment 1</a>
+        <a href="assignment2.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large" style="color: white;">Assignment 2</a>
+        <a href="assignment3.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large" style="color: white;">Assignment 3</a>
+        <a href="assignment4.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large" style="color: white;">Assignment 4</a>
+    </div>
+</div>
+
+<header class="w3-container w3-center w3-padding-32" style="background-color: #133E87"> 
+    <h1 style="color: white;"><b><br>Simple Payroll</b></h1>
 </header>
 
 <div class="w3-row-padding w3-padding-64">
     <div class="w3-content">
+        <h2>Payroll Management System</h2>
+        <div class="flex-container">
+            <div class="converter">
+                <label for="employeeName">Employee Name:</label>
+                <input type="text" id="employeeName" placeholder="Enter employee name" style="width: 150px;"><br><br>
 
-        <h1>Payroll Management System</h1>
+                <label for="daysWorked">Days Worked:</label>
+                <input type="number" id="daysWorked" placeholder="Enter days worked" min="0" style="width: 150px;"><br><br>
 
-        <label for="employeeName">Employee Name:</label>
-        <input type="text" id="employeeName" placeholder="Enter employee name">
+                <label for="dailyRate">Daily Rate:</label>
+                <input type="number" id="dailyRate" placeholder="Enter daily rate" min="0" style="width: 150px;"><br><br>
 
-        <label for="daysWorked">Days Worked:</label>
-        <input type="number" id="daysWorked" placeholder="Enter days worked" min="0">
+                <label for="deductionAmount">Deduction Amount:</label>
+                <input type="number" id="deductionAmount" placeholder="Enter deduction amount" min="0" style="width: 150px;"><br><br>
 
-        <label for="dailyRate">Daily Rate:</label>
-        <input type="number" id="dailyRate" placeholder="Enter daily rate" min="0">
+                <button onclick="addEmployee()">Add Employee</button>
+                <button onclick="openModal()">Delete Employee</button><br>
+            </div>
 
-        <label for="deductionAmount">Deduction Amount:</label>
-        <input type="number" id="deductionAmount" placeholder="Enter deduction amount" min="0">
-
-        <button onclick="addEmployee()">Add Employee</button>
-        <button onclick="deleteEmployee()">Delete Employee</button>
+            <table id="payrollTable">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Employee Name</th>
+                        <th>Days Worked</th>
+                        <th>Daily Rate</th>
+                        <th>Gross Pay</th>
+                        <th>Deduction Amount</th>
+                        <th>Net Pay</th>
+                    </tr>
+                </thead>
+                <tbody id="payrollBody">
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 
-<table id="payrollTable">
-    <thead>
-        <tr>
-            <th>No.</th>
-            <th>Employee Name</th>
-            <th>Days Worked</th>
-            <th>Daily Rate</th>
-            <th>Gross Pay</th>
-            <th>Deduction Amount</th>
-            <th>Net Pay</th>
-        </tr>
-    </thead>
-    <tbody id="payrollBody">
-        <!-- Payroll data will be inserted here -->
-    </tbody>
-</table>
-
-<div class="custom-footer">
-    <h1 class="w3-margin custom-footer">No matter what people tell you, words and ideas can change the world.<br>Robin Williams</h1>
+<!-- First Modal for Inputting Line Number -->
+<div id="inputModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeInputModal()">&times;</span>
+        <h2>Delete Employee</h2>
+        <p>Please enter the line number of the employee you want to delete:</p>
+        <input type="number" id="lineNumberToDelete" placeholder="Enter line number to delete"><br><br>
+        <button onclick="openConfirmModal()">Next</button>
+        <button onclick="closeInputModal()">Cancel</button>
+    </div>
 </div>
 
-<script>
-    let payrollList = [];
+<!-- Second Modal for Confirming Deletion -->
+<div id="confirmModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeConfirmModal()">&times;</span>
+        <h2>Confirm Deletion</h2>
+        <p>Are you sure you want to delete this employee?</p>
+        <button onclick="confirmDelete()">Yes, Delete</button>
+        <button onclick="closeConfirmModal()">Cancel</button>
+    </div>
+</div>
 
-    function addEmployee() {
-        const name = document.getElementById('employeeName').value;
-        const daysWorked = parseInt(document.getElementById('daysWorked').value);
-        const dailyRate = parseFloat(document.getElementById('dailyRate').value);
-        const deductionAmount = parseFloat(document.getElementById('deductionAmount').value);
+<!-- Your existing HTML content goes here -->
 
-        if (name === '' || isNaN(daysWorked) || isNaN(dailyRate) || isNaN(deductionAmount)) {
-            alert('Please fill in all fields correctly.');
-            return;
-        }
+<footer class="w3-container w3-padding-32 w3-margin-top w3-center" style="background-color: #133E87">
+  <p style="color: white;">Ad Majorem dei Gloriam!</p>
+</footer>
 
-        const grossPay = daysWorked * dailyRate;
-        const netPay = grossPay - deductionAmount;
+<script src="payroll.js"></script>
+<script src="navbar.js"></script>
 
-        payrollList.push({
-            name,
-            daysWorked,
-            dailyRate,
-            grossPay,
-            deductionAmount,
-            netPay
-        });
-
-        updatePayrollTable();
-        clearInputs();
-    }
-
-    function deleteEmployee() {
-        const lineNumber = parseInt(prompt('Enter the line number of the employee to delete:'));
-        
-        if (isNaN(lineNumber) || lineNumber <= 0 || lineNumber > payrollList.length) {
-            alert('Invalid line number.');
-            return;
-        }
-
-        payrollList.splice(lineNumber - 1, 1); // Remove the employee from the list
-        updatePayrollTable();
-    }
-
-    function updatePayrollTable() {
-        const tbody = document.getElementById('payrollBody');
-        tbody.innerHTML = ''; // Clear existing rows
-
-        payrollList.forEach((employee, index) => {
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td>${index + 1}</td>
-                <td>${employee.name}</td>
-                <td>${employee.daysWorked}</td>
-                <td>${employee.dailyRate.toFixed(2)}</td>
-                <td>${employee.grossPay.toFixed(2)}</td>
-                <td>${employee.deductionAmount.toFixed(2)}</td>
-                <td>${employee.netPay.toFixed(2)}</td>
-            `;
-            tbody.appendChild(row);
-        });
-    }
-
-    function clearInputs() {
-        document.getElementById('employeeName').value = '';
-        document.getElementById('daysWorked').value = '';
-        document.getElementById('dailyRate').value = '';
-        document.getElementById('deductionAmount').value = '';
-    }
-</script>
 
 </body>
 </html>
