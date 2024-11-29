@@ -1,4 +1,3 @@
-//------------Global Variables
 let payroll = [];
 
 // Function to convert a value to x decimal places
