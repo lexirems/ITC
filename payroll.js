@@ -73,6 +73,8 @@ function showPayroll() {
             // Open confirmation modal
             document.getElementById('inputModal').style.display = 'none'; // Close input modal
             document.getElementById('confirmModal').style.display = 'block'; // Show confirm modal
+            
+            // Set up confirm button to delete the employee
             document.getElementById('confirmDeleteButton').onclick = () => confirmDelete(lineNumber);
         } else {
             alert('Invalid line number. Please enter a valid number.');
