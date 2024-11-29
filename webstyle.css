@@ -70,11 +70,8 @@ tr:hover {
     background-color: #e0e0e0; /* Slightly darker on hover */
 }
 
-.flex-container {
-    display: flex;
-    justify-content: flex-start; /* Align items to the left */
-    align-items: flex-start; /* Aligns items at the start */
-    flex-wrap: wrap; /* Allows wrapping of items */
+.input-container {
+    margin-bottom: 32px; /* Space between input fields and table */
 }
 
 .converter {
