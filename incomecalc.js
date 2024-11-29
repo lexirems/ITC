@@ -24,5 +24,12 @@ function calculateTax() {
     document.getElementById('result').innerText = `Your income tax is: PHP ${tax.toFixed(2)}`;
 }
 
-// Event listener for calculating tax
 document.getElementById('calculateTaxButton').addEventListener('click', calculateTax);
+
+function clearInputs() {
+    document.getElementById('income').value = '';
+    document.getElementById('result').innerText = '';
+}
+
+// Event listener for clear button
+document.getElementById('clearButton').addEventListener('click', clearInputs);
